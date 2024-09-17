@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+
+{%block head%}
+{%endblock%}
+
+{%block body%} 
+<div class="content">
+    <h1>Song Mood Classifier</h1>
+    <p>Type in a song name along with its artist and<br/>we'll guess what kind of mood it is!</p>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <input type="text" name="song_name" placeholder="Song Name" required>
+
+        <input type="submit" value="Predict">
+    </form>
+    <!-- Render the returned mood, artist, and album art -->
+    {%if mood%}
+    <div class="result">
+        <h2>{{mood}}</h2>
+        <h3>{{song_name}}</h3>
+        <p>{{artist}}</p>
+        <img src="{{album_cover}}" alt="Album Art">
+    {%endif%}
+</div>
+
+{%endblock%}
