@@ -1,2 +1,1 @@
 rfc.joblib filter=lfs diff=lfs merge=lfs -text
-rfc.pkl filter=lfs diff=lfs merge=lfs -text

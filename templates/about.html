@@ -1,0 +1,22 @@
+{%extends 'base.html'%}
+
+{%block head%}
+{%endblock%}
+{%block body%}
+<div class="about">
+    <h1>About the Project</h1>
+    <p>The project allows the user to input any song that's available on Spotify classify it based on 4 different moods:</p>
+    <ol>
+        <li>Happy</li>
+        <li>Sad</li>
+        <li>Angry</li>
+        <li>Relaxed</li>
+    </ol>
+    <p>
+        The model uses pre-labelled data sourced from Kaggle. It employs the Random Forest Classifier model from Scikit Learn. 
+        To query songs, it uses the Spotify Web API to search songs, returning audio features used to predict the mood.
+    </p>
+    <h3 class="credits">Dataset Credits:</h3>
+    <p><a href="https://www.kaggle.com/datasets/abdullahorzan/moodify-dataset">https://www.kaggle.com/datasets/abdullahorzan/moodify-dataset</a></p>
+</div>
+{%endblock%}

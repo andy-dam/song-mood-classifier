@@ -21,7 +21,6 @@ scaler = joblib.load('scaler.joblib')
 
 
 ''' 
-Define the predict function based on song name
 This function will search for the song on Spotify, extract its features, 
 scale the features and predict the genre of the song
 
@@ -34,7 +33,12 @@ Returns:
     str: The url of the album cover of the song
 '''
 def predict_song(song_name):
-    song = sp.search(q=song_name, limit=1)
+    song = None
+    while song is None:
+        try:
+            song = sp.search(q=song_name, limit=1)
+        except spotipy.exceptions.SpotifyException as e:
+            print(f"Error occurred: {e}. Retrying...")
     song_id = song['tracks']['items'][0]['id']
     song_features = sp.audio_features(song_id)[0]
     X = [song_features['danceability'], song_features['energy'], song_features['loudness'], 
@@ -61,7 +65,16 @@ def index():
 def predict():
     song_name = request.form['song_name']
     mood, song_name, artist, album_cover = predict_song(song_name)
+    # make mood capitalized
+    mood = mood.capitalize()
     return render_template('index.html', mood=mood, artist=artist, album_cover=album_cover, song_name=song_name)
+
+
+'''About route'''
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)

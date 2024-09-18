@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-    {% block title %}{% endblock %}
-    {% block head %}{% endblock %}
-</head>
-<body>
-    {% block body %}{% endblock %}
-
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        {% block title %}{% endblock %}
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        <div class="page-items">
+            <nav>
+                <ul class="navbar">
+                    <li><a href="{{ url_for('index') }}">Predict</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                </ul>
+            </nav>
+            {% block body %}{% endblock %}
+        </div>
+    </body>
 </html>
