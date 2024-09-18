@@ -14,7 +14,7 @@ This model is built using the Random Forest Classifier from the Scikit-Learn lib
 6. Instrumentalness: Predicts whether a track contains no vocals. The closer the instrumentalness value is to 1.0, the greater likelihood the track contains no vocal content. Values above 0.5 are intended to represent instrumental tracks, but confidence is higher as the value approaches 1.0.
 7. Liveness: Detects the presence of an audience in the recording. Higher liveness values represent an increased probability that the track was performed live. 
 8. Valence: A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).
-9. Tempo: The overall estimated tempo of a track in beats per minute (BPM).
+9. Tempo: The overall estimated tempo of a track in beats per minute (BPM).\n
 (These descriptions are from the [Spotify API documentation](https://developer.spotify.com/documentation/web-api/reference/get-audio-features))
 
 ## Getting Started
@@ -28,7 +28,7 @@ The Flask app was built using these versions of these libraries:
 * Joblib 1.4.2
 
 ### Installing
-To run this app, run these commands:
+In order to run this app, these libraries must be installed:
 ```
 pip install flask==3.0.3
 pip install spotipy==2.24.0
